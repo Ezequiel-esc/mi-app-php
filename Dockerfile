@@ -1,11 +1,12 @@
-# Usa la imagen oficial de PHP con Apache
 FROM php:8.2-apache
 
-# Copia los archivos del proyecto al servidor web
+# Instala dependencias necesarias para compilar pdo_pgsql
+RUN apt-get update && apt-get install -y \
+    libpq-dev \
+    && docker-php-ext-install pdo pdo_pgsql
+
+# Copia los archivos del proyecto al contenedor
 COPY . /var/www/html/
 
-# Instala la extensión PDO para PostgreSQL
-RUN docker-php-ext-install pdo pdo_pgsql
-
-# Expone el puerto 80 para HTTP
+# Expone el puerto 80
 EXPOSE 80
