@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: php-web-libreria
+    env: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DB_HOST
+        value: dpg-d1nqr7er433s738iqiog-a.oregon-postgres.render.com
+      - key: DB_NAME
+        value: libreria_ah74
+      - key: DB_USER
+        value: eli
+      - key: DB_PASSWORD
+        value: jm7j8Akg7glS71yeauYioH5j6Aa1mA7m
